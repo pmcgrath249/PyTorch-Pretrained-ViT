@@ -9,7 +9,7 @@ import os
 import sys
 from shutil import rmtree
 
-from setuptools import find_packages, setup, Command
+from setuptools import find_namespace_packages, setup, Command
 
 # Package meta-data.
 NAME = 'pytorch-pretrained-vit'
@@ -22,7 +22,11 @@ VERSION = '0.0.7'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    'torch'
+    'torch',
+    "model-tools @ git+https://github.com/brain-score/model-tools",
+    "numpy",
+    'xarray==0.16.1',
+    "result_caching @ git+https://github.com/mschrimpf/result_caching"
 ]
 
 # What packages are optional?
@@ -103,7 +107,7 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
+    packages=find_namespace_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
     # py_modules=['model'], # If your package is a single module, use this instead of 'packages'
     install_requires=REQUIRED,
     extras_require=EXTRAS,
