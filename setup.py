@@ -25,7 +25,7 @@ REQUIRED = [
     'torch',
     "model-tools @ git+https://github.com/brain-score/model-tools",
     "numpy",
-    'xarray==0.16.1',
+    'xarray',
     "result_caching @ git+https://github.com/mschrimpf/result_caching"
 ]
 
